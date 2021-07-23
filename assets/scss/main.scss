@@ -13,6 +13,21 @@ body {
 
 main {
   flex-grow: 1;
+  
+}
+
+.rowHeight {
+  min-height: 40vh;
+}
+
+input {
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: blue;
+  background-color: transparent;
+}
+input:focus {
+  border-color: green
 }
 
 

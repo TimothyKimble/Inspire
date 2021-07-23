@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style/main.css">
@@ -12,23 +15,100 @@
     <title>Inspire</title>
 </head>
 
-<body>
-    <header>
-        <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
-            <a class="navbar-brand" href="#">
-                <img src="assets/img/logo.png" width="45" height="45" alt="" loading="lazy">
-                <span class="ml-2">Inspire</span>
-            </a>
-        </nav>
-    </header>
-    <main class="container">
+
+<style>
+    body.debug .container,
+    body.debug .container-fluid {
+        outline: 2px double blue;
+        outline-offset: -2px;
+    }
+
+    body.debug .row {
+        outline: 2px dashed red;
+        outline-offset: -2px;
+    }
+
+    body.debug [class*="col-"] {
+        outline: 2px dotted forestgreen;
+        outline-offset: -3px;
+    }
+</style>
+
+
+
+
+<body class="debug">
+    <main class="container-fluid ">
         <div id="app"></div>
-    </main>
-    <footer class="bg-dark text-light">
-        <div class="text-center">
-            <p><small>Made with love by Codeworks</small></p>
+
+        <!-- NOTE Weather -->
+        <div class="row d-flex justify-content-end">
+            <div class="col-md-1 d-flex justify-content-end flex-column align-items-end mt-3 mr-3">
+                <i class="fa fa-cloud d-flex " aria-hidden="true">
+                    <p class="m-0">75 </p>
+                </i>
+                <h5>Weather</h5>
+            </div>
         </div>
-    </footer>
+
+        <!-- NOTE Clock  -->
+        <div class="row rowHeight d-flex align-items-end">
+            <div class="col-md-12">
+                <div class="row d-flex align-self-center justify-content-center flex-column ">
+                    <div class="col-md-4 d-flex align-self-center flex-column text-center">
+                        <h1><span id="time"> 20:20:20</span></h1>
+                        <h3>Good Morning</h3>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- NOTE Greeting -->
+        <div class="row d-flex justify-content-center flex-column">
+            <div class="col-md-4 d-flex align-self-center justify-content-center mt-4 flex-column text-center">
+                <h5>How Are You Feeling Today?</h5>
+                <input type="text">
+            </div>
+        </div>
+
+        <!-- NOTE Image, Quote, and Todo's -->
+        <div class="row">
+            <div class="col-md-1">
+                <p>Location</p>
+                <p>Photographer</p>
+            </div>
+
+            <div class="col-md-4">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus asperiores deleniti delectus eaque
+                    dolorem unde!</p>
+                <p>Author</p>
+            </div>
+
+            <div class="col-md-3">
+                <h6>Tasks</h6>
+                <div class="row border-left border-right border-primary bg-light">
+                    <div class="col-md-12 pt-2 pb-4  d-flex justify-content-center viewHeightCol" id="checkboxes">
+                        <ul class="row d-flex flex-wrap flex-column text-wrap p-0" id="tasks">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="row d-flex border-left border-right border-primary border-bottom bg-light">
+
+                    <form class="w-100 col-md-12 p-0" onsubmit="app.tasksController.addTask()">
+                        <div class="d-flex  mb-1 ">
+                            <input class="w-100" type="text" name="task" placeholder="Task..." id="task" required
+                                minlength="3" maxlength="50">
+                            <button class="btn btn-outline-success" type="submit">+</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
 
     <script src="app/main.js" type="module"></script>
 </body>
