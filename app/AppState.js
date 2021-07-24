@@ -3,9 +3,15 @@ import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
   tasks = []
-
-  tasked = 0
   complete = 0
+
+  activeQuote = null
+  activeImage = null
+
+  activeWeather = null
+
+  activeTask = false
+
 }
 
 export const ProxyState = new Proxy(new AppState(), {

@@ -37,26 +37,21 @@
 
 
 
-<body class="debug">
+<body class="text-light textShadow">
     <main class="container-fluid ">
         <div id="app"></div>
 
         <!-- NOTE Weather -->
-        <div class="row d-flex justify-content-end">
-            <div class="col-md-1 d-flex justify-content-end flex-column align-items-end mt-3 mr-3">
-                <i class="fa fa-cloud d-flex " aria-hidden="true">
-                    <p class="m-0">75 </p>
-                </i>
-                <h5>Weather</h5>
-            </div>
-        </div>
 
-        <!-- NOTE Clock  -->
+        <!-- NOTE Clock DONE  -->
         <div class="row rowHeight d-flex align-items-end">
+            <div class="col-md-12 d-flex justify-content-end align-self-start" id="weather">
+
+            </div>
             <div class="col-md-12">
                 <div class="row d-flex align-self-center justify-content-center flex-column ">
                     <div class="col-md-4 d-flex align-self-center flex-column text-center">
-                        <h1><span id="time"> 20:20:20</span></h1>
+                        <h1><span id="clock"> 20:20:20</span></h1>
                         <h3>Good Morning</h3>
                     </div>
 
@@ -65,7 +60,7 @@
             </div>
         </div>
 
-        <!-- NOTE Greeting -->
+        <!-- NOTE Greeting DONE-->
         <div class="row d-flex justify-content-center flex-column">
             <div class="col-md-4 d-flex align-self-center justify-content-center mt-4 flex-column text-center">
                 <h5>How Are You Feeling Today?</h5>
@@ -74,42 +69,48 @@
         </div>
 
         <!-- NOTE Image, Quote, and Todo's -->
-        <div class="row">
-            <div class="col-md-1">
-                <p>Location</p>
-                <p>Photographer</p>
+        <div class="row d-flex justify-content-between mt-4">
+            <div class="col-md-3 d-flex justify-content-end flex-column" id="photographer">
+
             </div>
 
-            <div class="col-md-4">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus asperiores deleniti delectus eaque
+            <div class="col-md-4 d-flex justify-content-end flex-column" id="quote">
+                <!-- <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus asperiores
+                    deleniti delectus eaque
                     dolorem unde!</p>
-                <p>Author</p>
+                <p class="text-center">Author</p> -->
             </div>
 
-            <div class="col-md-3">
-                <h6>Tasks</h6>
-                <div class="row border-left border-right border-primary bg-light">
+            <div class="col-md-3 spill bg-dark mr-4">
+                <h6 class="text-center">Tasks</h6>
+                <div class="div" id="completed"></div>
+
+                <div class="row ">
                     <div class="col-md-12 pt-2 pb-4  d-flex justify-content-center viewHeightCol" id="checkboxes">
-                        <ul class="row d-flex flex-wrap flex-column text-wrap p-0" id="tasks">
+                        <ul class="row d-flex flex-wrap  flex-column text-wrap p-0 scroll-bar" id="tasks">
+
 
                         </ul>
                     </div>
                 </div>
-                <div class="row d-flex border-left border-right border-primary border-bottom bg-light">
+                <div class="row d-flex  bg-light">
 
-                    <form class="w-100 col-md-12 p-0" onsubmit="app.tasksController.addTask()">
+                    <form class="w-100 col-md-12 p-0" onsubmit="app.tasksController.createTask()">
                         <div class="d-flex  mb-1 ">
                             <input class="w-100" type="text" name="task" placeholder="Task..." id="task" required
                                 minlength="3" maxlength="50">
                             <button class="btn btn-outline-success" type="submit">+</button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
 
     </main>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="app/main.js" type="module"></script>
 </body>
 

@@ -3,21 +3,23 @@
 @import "./_overrides.scss";
 @import "./custom.scss";
 @import "./loaders.scss";
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: $body-bg;
+  background-size: cover;
 }
 
 main {
   flex-grow: 1;
-  
+  font-family: 'Quicksand', sans-serif;
 }
 
 .rowHeight {
-  min-height: 40vh;
+  min-height: 55vh;
 }
 
 input {
@@ -25,9 +27,44 @@ input {
   border-width: 0 0 2px;
   border-color: blue;
   background-color: transparent;
+  background-position: center;
 }
 input:focus {
   border-color: green
+}
+.quote {
+  &:hover{
+    .author {
+      opacity: 1;
+    }
+  }
+  .author {
+    opacity: 0;
+    transition: all .3s linear
+  }
+}
+
+.textShadow{
+  text-shadow: 1px 1px black;
+}
+
+.bar-scroll {
+  max-height: 10vh;
+  
+  overflow-y: auto;
+}
+
+input[type=checkbox]:checked + label.strikethrough{
+  text-decoration: line-through;
+}
+
+.big-checkbox {width: 20px; height: 20px;}
+
+.spill {
+  bottom: 5rem;
+}
+@media screen and (max-width:766px) {
+  .spill {bottom: 0rem;}
 }
 
 

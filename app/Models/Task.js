@@ -1,27 +1,28 @@
 import { ProxyState } from "../AppState.js"
 
 export default class Task {
-  constructor({ name, checked, id }) {
-    this.id = id
-    this.name = name
-    this.checked = checked
+  constructor({ completed, description, user, _id }) {
+    this.completed = completed;
+    this.description = description;
+    this.user = user;
+    this._id = _id;
 
   }
 
   get Template() {
-    console.log(this.checked)
-    return `<li class="d-flex text-wrap my-1"><div class="col-11  d-flex align-items-center"><input type="checkbox" ${this.checked ? 'checked' : ''} class=" d-flex big-checkbox" onclick="app.listsController.toggledTaskSelection('${this.id}')" id="${this.id}" ><label for="${this.id}" class="strikethrough"> <h6 class="m-0 pl-1 strikethrough">${this.name}</h6></label> </div> <div class="col-1 d-flex p-0 justify-content-center"><span class="action txt-danger d-flex justify-content-end " onclick="app.listsController.removeTask('${this.id}')"><i class="d-flex align-self-center fa fa-lg fa-trash action text-danger" title="delete List" ></i></span></div></li>`
+    return `
+    <li class="row d-flex text-wrap my-1">
+    <div class="col-11  d-flex align-items-center">
+    <input type="checkbox" ${this.completed ? 'checked' : ''} class=" d-flex " onclick="app.tasksController.toogleTask()" >
+    <label for="${this.description}" class="strikethrough"> <p class="m-0 pl-1 strikethrough">${this.description}</p></label> 
+    </div> 
+    <div class="col-1 d-flex p-0 justify-content-center">
+    <span class="action txt-danger d-flex justify-content-end " onclick="app.tasksController.removeTask('${this._id}')">
+    <i class="d-flex align-self-center fa fa-md fa-trash action text-danger" title="delete task" ></i>
+    </span>
+    </div>
+    </li>`
   }
 
-  get MyTasks() {
-    let template = ''
-    let tasks = ProxyState.tasks.filter(task => task.listID === this.id)
-    tasks.forEach(t => {
-      template += t.Template
-    })
-    if (!template) {
-      template += "No Tasks"
-    }
-    return template
-  }
+
 }
