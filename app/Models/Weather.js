@@ -1,6 +1,6 @@
 export default class Weather {
   constructor({ main, weather, }) {
-    this.main = main.temp
+    this.main = Math.floor(main.temp)
     this.weather = weather[0].description
   }
 
