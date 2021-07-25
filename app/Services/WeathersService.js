@@ -11,10 +11,7 @@ class WeathersService {
 
 
 
-  getCelsius() {
-    (ProxyState.activeWeather - 32) * (5 / 9)
-    console.log(ProxyState.activeWeather)
-  }
+
 
 }
 

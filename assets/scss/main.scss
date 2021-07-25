@@ -48,11 +48,7 @@ input:focus {
   text-shadow: 1px 1px black;
 }
 
-.bar-scroll {
-  max-height: 10vh;
-  
-  overflow-y: auto;
-}
+
 
 input[type=checkbox]:checked + label.strikethrough{
   text-decoration: line-through;

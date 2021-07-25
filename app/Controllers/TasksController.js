@@ -7,8 +7,7 @@ function _draw() {
   ProxyState.tasks.forEach(task => {
     template += task.Template
   })
-  document.getElementById('tasks').innerHTML = template
-
+  document.getElementById('tasks').innerHTML = `<div class="d-flex justify-content-center flex-column"><h6 class="text-center">Tasks</h6><p class="m-0 text-center ">${ProxyState.tasks.filter(x => x.completed).length}/${ProxyState.tasks.length}</p></div>` + template
 }
 
 export default class TasksController {
@@ -30,9 +29,11 @@ export default class TasksController {
   createTask() {
     event.preventDefault()
     let form = event.target
+    // @ts-ignore
     let newTask = new Task({ completed: false, description: form.task.value, user: 'user-id', _id: undefined })
     console.log(newTask);
     tasksService.createTask(newTask)
+    // @ts-ignore
     form.reset()
   }
 
