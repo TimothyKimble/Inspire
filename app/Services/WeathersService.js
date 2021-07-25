@@ -9,9 +9,13 @@ class WeathersService {
     ProxyState.activeWeather = new Weather(res.data)
   }
 
-  async changeWeather() {
 
+
+  getCelsius() {
+    (ProxyState.activeWeather - 32) * (5 / 9)
+    console.log(ProxyState.activeWeather)
   }
+
 }
 
 export const weathersService = new WeathersService();

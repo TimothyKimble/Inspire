@@ -13,7 +13,7 @@ export default class Task {
     return `
     <li class="row d-flex text-wrap my-1">
     <div class="col-11  d-flex align-items-center">
-    <input type="checkbox" ${this.completed ? 'checked' : ''} class=" d-flex " onclick="app.tasksController.toogleTask()" >
+    <input type="checkbox" ${this.completed ? 'checked' : ''} class=" d-flex " onclick="app.tasksController.toggleTask('${this._id}')" >
     <label for="${this.description}" class="strikethrough"> <p class="m-0 pl-1 strikethrough">${this.description}</p></label> 
     </div> 
     <div class="col-1 d-flex p-0 justify-content-center">

@@ -26,12 +26,21 @@ export default class WeathersController {
     }
   }
 
-  async changeWeather() {
-    try {
-      await weathersService.changeWeather()
-    } catch (error) {
-      console.error(error)
-    }
+  getFarenheit(temp) {
+    temp = Math.floor(((temp - 273.15) * 1.8) + 32);
+    document.getElementById('temp').innerHTML = `${temp} <span>&#8457;</span>`
+    console.log(ProxyState.activeWeather)
+  }
+
+  getCelsius(temp) {
+    temp = Math.floor(temp - 273.15);
+    document.getElementById('temp').innerHTML = `${temp} <span>&#8451;</span>`
+    console.log(ProxyState.activeWeather)
+  }
+
+  getKelvin(temp) {
+    document.getElementById('temp').innerHTML = `${temp} <span>&#8490;</span>`
+    console.log(ProxyState.activeWeather)
   }
 
 }

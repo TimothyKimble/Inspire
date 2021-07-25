@@ -22,12 +22,14 @@ class TasksService {
 
   }
 
-  async toogleTask(task) {
-    console.log('got to service');
-    const res = await sandboxApi.put(`/TimothyKimble/todos/`, task)
-    console.log('put task')
-    task.completed = true
-    ProxyState.tasks = [...ProxyState.tasks, task]
+  async toggleTask(task) {
+    console.log(task);
+    const res = await sandboxApi.put(`/TimothyKimble/todos/${task._id}`, task)
+    console.log('toggled Task');
+    res.data.completed = task.completed
+    ProxyState.tasks = [...ProxyState.tasks]
+
+
 
 
   }

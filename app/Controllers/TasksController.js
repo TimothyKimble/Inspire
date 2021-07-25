@@ -36,6 +36,17 @@ export default class TasksController {
     form.reset()
   }
 
+  toggleTask(id) {
+
+    console.log(id, ProxyState.tasks)
+    const existingTask = ProxyState.tasks.find(x => x._id === id)
+    if (!existingTask) {
+      return
+    }
+    existingTask.completed = !existingTask.completed
+    tasksService.toggleTask(existingTask)
+
+  }
 
   async removeTask(id) {
     try {
@@ -46,15 +57,4 @@ export default class TasksController {
 
   }
 
-  async toogleTask(completed) {
-    console.log("calling to service");
-    try {
-      await tasksService.toogleTask(completed)
-      console.log('called Service');
-    } catch (error) {
-
-      console.error(error)
-
-    }
-  }
 }
