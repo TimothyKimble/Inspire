@@ -48,7 +48,12 @@ input:focus {
   text-shadow: 1px 1px black;
 }
 
-
+.greetingText{ 
+  background-color: #3ba5dc40;
+  color: white;
+  font-size:x-large;
+  text-shadow: 1px 1px black;
+} 
 
 input[type=checkbox]:checked + label.strikethrough{
   text-decoration: line-through;
