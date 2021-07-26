@@ -18,7 +18,7 @@ class TasksService {
     const res = await sandboxApi.post('/TimothyKimble/todos', task)
     task._id = res.data._id
     console.log(res, task);
-    ProxyState.tasks = [...ProxyState.tasks, task]
+    ProxyState.tasks = [...ProxyState.tasks, new Task(res.data)]
 
   }
 
